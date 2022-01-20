@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <title>Digital Clock</title>
+    </head>
+    <body>
+        <h1>Good Day</h1>
+        <h3>the current time is:</h3>
+        <nav class="timer">
+            <h2></h2>
+        </nav>
+    </body>
+    <script>
+        let globalVar = 0;
+        window.setInterval(timeFunc, 1000);
+        function timeFunc() {
+            let date = new Date();
+            let currentTime = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+            let timerClass = document.querySelector(".timer h2");
+
+            timerClass.innerHTML = currentTime;
+        }
+        let getClass = document.querySelector("body h1");
+        window.setInterval(initiate, 5000);
+        function initiate(){
+            getClass.style.opacity = 0;
+            window.setTimeout(changeGreeting, 1000);
+        }
+
+        function changeGreeting() {
+            if(globalVar == 0){
+                getClass.innerHTML = "bonne journée";
+                ++globalVar;
+            }
+            else if(globalVar == 1){
+                getClass.innerHTML = "再会";
+                ++globalVar;
+            }
+            else if(globalVar == 2){
+                getClass.innerHTML = "Buenos días";
+                ++globalVar;
+            }
+            else if(globalVar == 3){
+                getClass.innerHTML = "يوم جيد";
+                ++globalVar;
+            }
+            else if(globalVar == 4){
+                getClass.innerHTML = "Good Day";
+                globalVar = 0;
+            }
+            getClass.style.opacity = 1;
+        }
+    </script>
+</html>
